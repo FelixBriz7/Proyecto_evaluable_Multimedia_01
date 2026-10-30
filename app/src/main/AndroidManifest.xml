@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_Tema_1_Evaluable">
+
+        <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+        <uses-permission android:name="android.permission.CALL_PHONE" />
+
+
         <activity
             android:name=".Config_Activity"
             android:exported="true"
