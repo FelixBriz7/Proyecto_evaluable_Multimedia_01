@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Boton que redirige la url hacia el navegador
+        /*
+        Al pulsar el botón, la app abre el navegador del móvil en la dirección web
+        que el usuario guardó en Ajustes, usando un Intent implícito
+         */
 
         mainBinding.imageButtonMainActivityUrl.setOnClickListener {
             val intentUrl = Intent(Intent.ACTION_VIEW, Uri.parse(url!!));
@@ -70,27 +74,47 @@ class MainActivity : AppCompatActivity() {
 
         mainBinding.imageButtonMainActivityAlarma.setOnClickListener {
 
+            //Extrae la hora exacta del telefono
+
             val calendario = Calendar.getInstance();
+
+            //Le suma 2 minutos a esa hora, es decir si son las 8:34, le suma a 8:36
+
             calendario.add(Calendar.MINUTE, 2);
+
+            //Extraen la hora (formato 24 h) y los minutos de la hora ya sumada
 
             val hora = calendario.get(Calendar.HOUR_OF_DAY);
             val minutos = calendario.get(Calendar.MINUTE);
 
+            /*
+            Ahora creamos un Intent implícito que no indica qué app lo abre si no
+            solo la acción (“poner una alarma”), y Android elige la app Reloj
+             */
+
             val intentAlarma = Intent(AlarmClock.ACTION_SET_ALARM);
+
+            // Le pasa al Reloj la hora y los minutos de la alarma
+
             intentAlarma.putExtra(AlarmClock.EXTRA_HOUR, hora);
             intentAlarma.putExtra(AlarmClock.EXTRA_MINUTES, minutos);
+
+            // indica que cree la alarma directamente, sin abrir la pantalla del Reloj.
+
             intentAlarma.putExtra(AlarmClock.EXTRA_SKIP_UI, true);
             startActivity(intentAlarma);
 
         }
 
+
+        //Boton de llamar, este irá al menu para que puedas llamar
+
         mainBinding.imageButtonMainActivityLlamar.setOnClickListener {
 
-            val intentLlamar = Intent(Intent.ACTION_CALL).apply {
-                data = Uri.parse(telefono!!);
-
-            }
-
+            val intentLlamada = Intent(this, LlamadaActivity::class.java)
+            intentLlamada.putExtra("extra_telefono", telefono)
+            intentLlamada.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intentLlamada)
 
         }
 
