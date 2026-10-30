@@ -39,7 +39,8 @@ class Config_Activity : AppCompatActivity() {
 
         /*
         Esta linea le dice andorid que genere o busque el archivo donde se guardan
-        los datos de la aplicación, es como un especie de cuaderno donde va apuntar las cosas
+        los datos de la aplicación,es decir como una mini memoria.
+        Es como un especie de cuaderno donde va apuntar las cosas
         que el usuario guarde
          */
 
@@ -53,27 +54,30 @@ class Config_Activity : AppCompatActivity() {
         siempre, pero en caso de que yo existan o haya datos, este lo dejará en vacio ("")
          */
 
-        configBinding.editTextPhoneConfig.setText(sharedFich.getString(nameSharedPhone, ""))
-        configBinding.editTextTextURLConfig.setText(sharedFich.getString(nameSharedURL, ""))
+        configBinding.editTextPhoneConfig.setText(sharedFich.getString(nameSharedPhone, ""));
+        configBinding.editTextTextURLConfig.setText(sharedFich.getString(nameSharedURL, ""));
 
         //Configuración del boton
 
         configBinding.buttonGuardarConfig.setOnClickListener {
+
+            //Estas variables es donde guardan los datos escritos por el usuario y quitanfo los espacios
+            // del principio y final para para evitrar el minimo de errores
 
             val telefono = configBinding.editTextPhoneConfig.text.toString().trim();
             val url = configBinding.editTextTextURLConfig.text.toString().trim();
 
             when {
                 telefono.isEmpty() -> {
-                    Toast.makeText(this, "Debes de introducir un numero de telefono", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Debes de introducir un numero de telefono", Toast.LENGTH_SHORT).show();
                 }
                 //Distinto de true
                 !esTelefonoEspanol(telefono) -> {
-                    Toast.makeText(this, "Telefono no válido, debe ser un numero Español", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Telefono no válido, debe ser un numero Español", Toast.LENGTH_SHORT).show();
                 }
 
                 url.isEmpty() -> {
-                    Toast.makeText(this, "Debes de introducir una url", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Debes de introducir una url", Toast.LENGTH_SHORT).show();
                 }
 
                 !esURLValida(url) -> {
@@ -83,7 +87,6 @@ class Config_Activity : AppCompatActivity() {
 
                 else -> {
                     // Guardamos el teléfono en formato internacional Español
-
                     val  telefonoFinal = formatearTelefono(telefono);
 
                     // Guardamos en SharedPreferences
@@ -122,8 +125,8 @@ class Config_Activity : AppCompatActivity() {
     private fun esTelefonoEspanol(telefono: String): Boolean {
         val phoneUtil = PhoneNumberUtil.getInstance()
         return try {
-            val numero = phoneUtil.parse(telefono, "ES")
-            phoneUtil.isValidNumberForRegion(numero, "ES")
+            val numero = phoneUtil.parse(telefono, "ES");
+            phoneUtil.isValidNumberForRegion(numero, "ES");
         } catch (e: NumberParseException) {
             false
         }
@@ -131,8 +134,8 @@ class Config_Activity : AppCompatActivity() {
 
     private fun formatearTelefono(telefono: String): String {
         val telefonoMovil = PhoneNumberUtil.getInstance()
-        val numero = telefonoMovil.parse(telefono, "ES")
-        return telefonoMovil.format(numero, PhoneNumberUtil.PhoneNumberFormat.E164)
+        val numero = telefonoMovil.parse(telefono, "ES");
+        return telefonoMovil.format(numero, PhoneNumberUtil.PhoneNumberFormat.E164);
     }
 
 
@@ -142,8 +145,8 @@ class Config_Activity : AppCompatActivity() {
      */
 
     private fun esURLValida(url: String): Boolean {
-        val empiezaHTTPS = url.startsWith("https://")
-        return empiezaHTTPS && Patterns.WEB_URL.matcher(url).matches()
+        val empiezaHTTPS = url.startsWith("https://");
+        return empiezaHTTPS && Patterns.WEB_URL.matcher(url).matches();
     }
 
 

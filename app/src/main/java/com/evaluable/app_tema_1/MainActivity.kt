@@ -22,10 +22,20 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater);
         setContentView(mainBinding.root);
 
+
+        //Guardamos la información que proviene de Config_Activity
+
+
         val telefono = intent.getStringExtra("extra_telefono");
         val url = intent.getStringExtra("extra_url");
 
+
         //Boton de regreso hacia los ajustes
+        /*
+        Para especificar un poco mas lo que hacemos con este metodo es que evitamos la
+        duplicidad de pantallas o de "Activitys", haciendo que las interfaces gráficas se muevan o roten
+        dependiendo de donde esté situado el usuario
+         */
 
         mainBinding.imageButtonMainActivityBackConfig.setOnClickListener {
 
@@ -42,16 +52,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentUrl);
         }
 
-        //Boton que habre el mail
+        /*
+        Aqui le decimos al programa que habra dentro de nuestra propia aplicación
+        el correo o el porgrama predefinido de correo que tenga puesto es usuario, normalmente
+        Gmail, pero para que abra otra aplicación añadimos la siguiente linea
+        "intentCorreo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)"
+         */
 
         mainBinding.imageButtonMainActivityCorreo.setOnClickListener {
-            val intentCorreo = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL);
+            val intentCorreo =
+                Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL);
+            intentCorreo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intentCorreo);
         }
 
         //Boton que programará 2 minutos de alarma
 
-        mainBinding.imageButtonMainActivityAlarma.setOnClickListener{
+        mainBinding.imageButtonMainActivityAlarma.setOnClickListener {
 
             val calendario = Calendar.getInstance();
             calendario.add(Calendar.MINUTE, 2);
@@ -67,9 +84,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        mainBinding.imageButtonMainActivityLlamar.setOnClickListener {
+
+            val intentLlamar = Intent(Intent.ACTION_CALL).apply {
+                data = Uri.parse(telefono!!);
+
+            }
 
 
+        }
 
     }
-
 }
