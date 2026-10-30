@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.evaluable.app_tema_1"
-        minSdk = 23
+        minSdk = 22
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
@@ -26,6 +26,11 @@ android {
             }
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -41,4 +46,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation("com.googlecode.libphonenumber:libphonenumber:9.0.36")
+
 }
