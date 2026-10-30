@@ -56,6 +56,12 @@ class LlamadaActivity : AppCompatActivity() {
         startActivity(intentLlamar);
     }
 
+    /*
+    gestionarPermisoLlamada, lo que hace principalmente es la verificacion de sdk ya que
+    un sdk mayor a 22 tendra que pedir permiso y si se ejecuta en una inferior a 23 este no tendra
+    que pedir permisos ninguno.
+    Igualmente este llama a funcion realizar llamada depues de pasar por los 2 verificaciones
+     */
     private fun gestionarPermisoLlamada() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val permiso = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
@@ -69,6 +75,12 @@ class LlamadaActivity : AppCompatActivity() {
         }
     }
 
+    /*
+        Este metodo pedirPermisoLlamada es lo que hemos comentado antes, en caso de que sea
+        mayor a un sdk 22 este tendra que solicitar permisos para poder ejecutar el programa, en caso
+        contrario, este no podrá hacer nada, si no que tendra que abrir de nuevo el programa para que pida el permiso
+        o darle al boton de llamar para preguar si le permite el permiso
+     */
     private val pedirPermisoLlamada = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { concedido ->
