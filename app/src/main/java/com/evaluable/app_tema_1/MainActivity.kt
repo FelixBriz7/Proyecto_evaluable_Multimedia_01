@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.AlarmClock
 import androidx.annotation.RequiresApi
+import com.bumptech.glide.Glide
 import com.evaluable.app_tema_1.databinding.ActivityMainBinding
 
 
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         mainBinding = ActivityMainBinding.inflate(layoutInflater);
         setContentView(mainBinding.root);
-
 
         //Guardamos la información que proviene de Config_Activity
 
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         dependiendo de donde esté situado el usuario
          */
 
-        mainBinding.imageButtonMainActivityBackConfig.setOnClickListener {
+        mainBinding.buttonMainActivityConfig.setOnClickListener {
 
             val intentVolver = Intent(this, Config_Activity::class.java);
             intentVolver.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         que el usuario guardó en Ajustes, usando un Intent implícito
          */
 
-        mainBinding.imageButtonMainActivityUrl.setOnClickListener {
+        mainBinding.buttonMainActivityUrl.setOnClickListener {
             val intentUrl = Intent(Intent.ACTION_VIEW, Uri.parse(url!!));
             startActivity(intentUrl);
         }
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         "intentCorreo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)"
          */
 
-        mainBinding.imageButtonMainActivityCorreo.setOnClickListener {
+        mainBinding.buttonMainActivityCorreo.setOnClickListener {
             val intentCorreo =
                 Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_EMAIL);
             intentCorreo.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         //Boton que programará 2 minutos de alarma
 
-        mainBinding.imageButtonMainActivityAlarma.setOnClickListener {
+        mainBinding.buttonMainActivityAlarma.setOnClickListener {
 
             //Extrae la hora exacta del telefono
 
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
         //Boton de llamar, este irá al menu para que puedas llamar
 
-        mainBinding.imageButtonMainActivityLlamar.setOnClickListener {
+        mainBinding.buttonMainActivityLlamar.setOnClickListener {
 
             val intentLlamada = Intent(this, LlamadaActivity::class.java)
             intentLlamada.putExtra("extra_telefono", telefono)

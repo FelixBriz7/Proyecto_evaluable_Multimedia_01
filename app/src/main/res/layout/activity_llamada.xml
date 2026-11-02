@@ -7,40 +7,76 @@
     android:layout_height="match_parent"
     tools:context=".LlamadaActivity">
 
+    <ImageView
+        android:id="@+id/imageView_fondo_llamada"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Fondo"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fondo_principal_estatico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView_NumeroTelefono_Llamada"
-        android:layout_width="221dp"
-        android:layout_height="45dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textSize="28sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_input_glass"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Número de teléfono"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button_Llamar_Llamada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_Llamar_Llamada"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_boton_menu_glass"
+        android:drawablePadding="20dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:stateListAnimator="@null"
+        android:text="Llamar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button_vueltaAtras_Llamada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_vueltaAtras_Llamada"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/bg_boton_menu_glass"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:stateListAnimator="@null"
+        android:text="Volver"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
-
-    <ImageButton
-        android:id="@+id/imageButton_Llamar_Llamada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icono_telefonollamar" />
-
-    <ImageButton
-        android:id="@+id/imageButton_vueltaAtras_Llamada"
-        android:layout_width="144dp"
-        android:layout_height="105dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

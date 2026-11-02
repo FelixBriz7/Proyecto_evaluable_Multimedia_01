@@ -36,13 +36,13 @@ class LlamadaActivity : AppCompatActivity() {
         telefono = intent.getStringExtra("extra_telefono");
         llamadaBinding.textViewNumeroTelefonoLlamada.text = telefono;
 
-        llamadaBinding.imageButtonLlamarLlamada.setOnClickListener {
+        llamadaBinding.buttonLlamarLlamada.setOnClickListener {
             gestionarPermisoLlamada();
         }
 
         //Boton para regresar a MainActivity
 
-        llamadaBinding.imageButtonVueltaAtrasLlamada.setOnClickListener {
+        llamadaBinding.buttonVueltaAtrasLlamada.setOnClickListener {
             finish();
         }
 

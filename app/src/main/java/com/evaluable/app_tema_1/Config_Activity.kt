@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.evaluable.app_tema_1.databinding.ActivityConfigBinding
 import com.google.i18n.phonenumbers.NumberParseException
 import com.google.i18n.phonenumbers.PhoneNumberUtil
+import com.bumptech.glide.Glide
 
 class Config_Activity : AppCompatActivity() {
 
@@ -36,6 +37,7 @@ class Config_Activity : AppCompatActivity() {
         //Funcion con la que vamos a inflar las vistas
         configBinding = ActivityConfigBinding.inflate(layoutInflater);
         setContentView(configBinding.root);
+        Glide.with(this).asGif().load(R.drawable.fondo_activity).into(configBinding.imageViewConfigFondo)
 
         /*
         Esta linea le dice andorid que genere o busque el archivo donde se guardan

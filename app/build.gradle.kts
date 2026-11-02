@@ -47,5 +47,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
     implementation("com.googlecode.libphonenumber:libphonenumber:9.0.36")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
 }

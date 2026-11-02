@@ -8,124 +8,142 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imageView_main_fondo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Fondo"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/fondo_principal_estatico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
         android:id="@+id/imageView_mainActivity_logo"
         android:layout_width="0dp"
-        android:layout_height="310dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="24dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo_principal_main" />
 
-    <ImageButton
-        android:id="@+id/imageButton_mainActivity_backConfig"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914"
-        app:srcCompat="@android:drawable/ic_menu_preferences" />
-
-    <ImageButton
-        android:id="@+id/imageButton_mainActivity_llamar"
-        android:layout_width="81dp"
-        android:layout_height="81dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_call" />
-
-    <ImageButton
-        android:id="@+id/imageButton_mainActivity_url"
-        android:layout_width="78dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@android:drawable/ic_menu_set_as" />
-
-    <TextView
-        android:id="@+id/textView_mainActivity_url"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="URL"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.589" />
+        app:layout_constraintVertical_bias="0.876">
 
-    <ImageButton
-        android:id="@+id/imageButton_mainActivity_correo"
-        android:layout_width="74dp"
-        android:layout_height="77dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_mainActivity_llamar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_boton_menu_glass"
+            android:drawablePadding="20dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:shadowColor="#CC000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:stateListAnimator="@null"
+            android:text="Llamar"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
 
-    <TextView
-        android:id="@+id/textView_mainActivity_correo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Correo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.782" />
+            app:tint="#C0C0C0" />
 
-    <TextView
-        android:id="@+id/textView_mainActivity_alarma"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ALARMA 2 MIN"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.782" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_mainActivity_correo"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_boton_menu_glass"
+            android:drawablePadding="20dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:shadowColor="#CC000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:stateListAnimator="@null"
+            android:text="Correo"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView_mainActivity_llamar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Llamar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_mainActivity_url"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_boton_menu_glass"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:shadowColor="#CC000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:stateListAnimator="@null"
+            android:text="Abrir URL"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/imageButton_mainActivity_alarma"
-        android:layout_width="82dp"
-        android:layout_height="78dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713"
-        app:srcCompat="@android:drawable/ic_menu_recent_history" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_mainActivity_alarma"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_boton_menu_glass"
+            android:drawablePadding="20dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:shadowColor="#CC000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:stateListAnimator="@null"
+            android:text="Alarma 2 Min"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_mainActivity_config"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_boton_menu_glass"
+            android:drawablePadding="20dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:shadowColor="#CC000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="12"
+            android:stateListAnimator="@null"
+            android:text="Ajustes"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
